@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="game">Hello</div>
+    <script>
+        const gameArea = document.body.querySelector('.game');
+        const game2 = document.createElement('div');
+        const btn = document.createElement('button');
+        btn.textContent = 'start game';
+        gameArea.prepend(btn);
+        gameArea.append(game2)
+        btn.addEventListener('click', startGame);
+        
+        function startGame() {
+            game2.innerHTML = '';
+            const game = {max:10, arr:['a','b','c','d']};
+            for(let i=0; i<game.max; i++) {
+                const div = document.createElement('div');
+                let temp = game.arr.sort(() => 0.5 - Math.random());
+                div.textContent = `[${temp}]`;
+                game2.append(div);
+            }
+        }
+    </script>
+</body>
+</html>

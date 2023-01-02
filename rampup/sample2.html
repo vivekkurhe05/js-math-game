@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            padding: 10px;
+            text-align: center;
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="game">Hello</div>
+    <script>
+        const gameArea = document.querySelectorAll('.game')[0];
+        const output = document.createElement('div');
+        output.classList.add('box')
+        output.textContent = 'Click me';
+        output.val = 0;
+        output.addEventListener('click', (e) => {
+            output.val++;
+            output.textContent = output.val;
+            let temp = output.val % 2 ? 'red' : 'blue';
+            output.style.backgroundColor = temp
+        })
+        gameArea.append(output);
+        document.body.prepend(output);
+        let val = gameArea.appendChild(output);
+        console.log(val);
+    </script>
+</body>
+</html>
